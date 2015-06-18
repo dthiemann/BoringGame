@@ -24,11 +24,21 @@ namespace BoringGame
 
     public sealed partial class MainPage : Page
     {
+
+        private double balance = 0.0;
         private ArrayList transactions = new ArrayList();
 
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        private void Income_Click(object sender, RoutedEventArgs e) {
+
+        }
+
+        private void Expense_Click(object sender, RoutedEventArgs e) {
+
         }
     }
 }
