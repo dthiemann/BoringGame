@@ -34,11 +34,11 @@ namespace BoringGame
         }
 
         private void Income_Click(object sender, RoutedEventArgs e) {
-
+            /* TODO: Add functionality for handling income */
         }
 
         private void Expense_Click(object sender, RoutedEventArgs e) {
-
+            /* TODO: Add functionality for handling expense */
         }
     }
 }
