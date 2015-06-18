@@ -103,6 +103,8 @@ namespace BoringGame
 
             // Ensure the current window is active
             Window.Current.Activate();
+
+            // Check to see if data file exists
         }
 
 #if WINDOWS_PHONE_APP
@@ -133,5 +135,25 @@ namespace BoringGame
             // TODO: Save application state and stop any background activity
             deferral.Complete();
         }
+
+        /*
+         * Function that determines if a particular file exists
+         */
+        /*
+        public bool FileExists()
+        {
+            string file_path = "data2.txt";
+            StreamReader file = new StreamReader();
+            try {
+                using (StreamReader sr = new StreamReader("c:/data2.txt"))
+                {
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }*/
     }
 }

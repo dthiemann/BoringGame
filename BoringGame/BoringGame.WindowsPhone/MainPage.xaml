@@ -9,6 +9,14 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <TextBlock HorizontalAlignment="Left"
+                   Margin="21,24,0,0"
+                   TextWrapping="Wrap"
+                   Text="Personal Finance Tracker"
+                   VerticalAlignment="Top"
+                   Height="54"
+                   Width="354"
+                   FontSize="30" />
 
     </Grid>
 </Page>
