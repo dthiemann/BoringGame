@@ -37,15 +37,44 @@ namespace BoringGame
         public MainPage()
         {
             this.InitializeComponent();
+            this.InitializeWindow();
+        }
+
+        private void InitializeWindow()
+        {
+            AmountTextBox.IsReadOnly = true;
+            DescripTextBox.IsReadOnly = true;
+            SubmitButton.IsEnabled = false;
+            CancelButton.Visibility = Visibility.Collapsed;
         }
 
         private void Income_Click(object sender, RoutedEventArgs e) {
             /* TODO: Add functionality for handling income */
+            if (Income.IsEnabled) {
+                isIncome = true;
+                Income.IsEnabled = false;
+                Expense.IsEnabled = false;
+                CancelButton.Visibility = Visibility.Visible;
 
+                AmountTextBox.IsReadOnly = false;
+                DescripTextBox.IsReadOnly = false;
+                SubmitButton.IsEnabled = true;
+            }
         }
 
         private void Expense_Click(object sender, RoutedEventArgs e) {
             /* TODO: Add functionality for handling expense */
+            if (Expense.IsEnabled)
+            {
+                isIncome = false;
+                Income.IsEnabled = false;
+                Expense.IsEnabled = false;
+                CancelButton.Visibility = Visibility.Visible;
+
+                AmountTextBox.IsReadOnly = false;
+                DescripTextBox.IsReadOnly = false;
+                SubmitButton.IsEnabled = true;
+            }
         }
 
         private void ActivityHistory_SelectionChanged(object sender, SelectionChangedEventArgs e) {
@@ -107,6 +136,16 @@ namespace BoringGame
                     dialogBox.ShowAsync();
                 }
             }
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            Income.IsEnabled = true;
+            Expense.IsEnabled = true;
+
+            AmountTextBox.IsReadOnly = true;
+            DescripTextBox.IsReadOnly = true;
+            SubmitButton.IsEnabled = false;
         }
     }
 }
