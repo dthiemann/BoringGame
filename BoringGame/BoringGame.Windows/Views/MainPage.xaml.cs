@@ -9,6 +9,7 @@ using System.ServiceModel.Channels;
 using System.Windows;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Graphics.Printing.OptionDetails;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -31,20 +32,29 @@ namespace BoringGame
     {
 
         private double balance = 0.0;
-        private LinkedList<Transaction> transactions = new LinkedList<Transaction>();
+        //private LinkedList<Transaction> transactions = new LinkedList<Transaction>();
+        private IList<Transaction> transactions = new List<Transaction>(); 
         private bool isIncome = false;
 
         public MainPage()
         {
             this.InitializeComponent();
             this.InitializeWindow();
-            
+            this.PopulateListView();
         }
 
         private void InitializeWindow()
         {
             DisableTextBoxes();
             CancelButton.Visibility = Visibility.Collapsed;
+        }
+
+        private void PopulateListView()
+        {
+            foreach (Transaction e in transactions)
+            {
+                ActivityHistory.Items.Add(e.ToString());
+            }
         }
 
         private void Income_Click(object sender, RoutedEventArgs e) {
@@ -89,9 +99,10 @@ namespace BoringGame
                     value = Math.Round(value, 2);
 
                     Transaction trans = new Transaction(value, DescripTextBox.Text, Type.Deposit);
-                    transactions.AddLast(trans);
+                    transactions.Add(trans);
                     balance += value;
                     BalanceLabel.Text = "$" + Math.Round(balance, 2).ToString();
+                    PopulateListView();
                 }
                 catch (Exception)
                 {
@@ -115,7 +126,7 @@ namespace BoringGame
                     value = Math.Round(value, 2);
 
                     Transaction trans = new Transaction(value, DescripTextBox.Text, Type.Deposit);
-                    transactions.AddLast(trans);
+                    transactions.Add(trans);
                     balance -= value;
                     BalanceLabel.Text = "$" + Math.Round(balance, 2).ToString();
                 }

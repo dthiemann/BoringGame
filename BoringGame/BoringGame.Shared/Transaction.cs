@@ -31,6 +31,12 @@ namespace BoringGame
             this.type = type;
         }
 
+        public override string ToString()
+        {
+            string val = "$" + amount.ToString() + ": " + description;
+            return val;
+        }
+
         /*
          * Determines if we have a valid transaction (i.e. no negative or 0 values)
          */

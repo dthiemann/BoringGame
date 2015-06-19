@@ -30,13 +30,6 @@
                        Width="544"
                        FontSize="72"
                        HorizontalAlignment="Left" />
-            <ListView x:Name="ActivityHistory"
-                      HorizontalAlignment="Left"
-                      Height="607"
-                      Margin="726,10,0,0"
-                      VerticalAlignment="Top"
-                      Width="610"
-                      SelectionChanged="ActivityHistory_SelectionChanged" />
             <Button x:Name="Income"
                     Content="Income"
                     HorizontalAlignment="Left"
@@ -109,11 +102,19 @@
                     Content="Cancel"
                     HorizontalAlignment="Left"
                     Height="83"
-                    Margin="633,477,0,0"
+                    Margin="609,477,0,0"
                     VerticalAlignment="Top"
                     Width="156"
                     FontSize="36"
                     Click="CancelButton_Click" />
+            <ListView x:Name="ActivityHistory"
+                      HorizontalAlignment="Left"
+                      Height="607"
+                      Margin="800,10,0,0"
+                      VerticalAlignment="Top"
+                      Width="536">
+            </ListView>
+                      
         </Grid>
     </Grid>
 </Page>
