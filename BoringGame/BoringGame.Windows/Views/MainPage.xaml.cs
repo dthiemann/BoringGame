@@ -38,13 +38,12 @@ namespace BoringGame
         {
             this.InitializeComponent();
             this.InitializeWindow();
+            
         }
 
         private void InitializeWindow()
         {
-            AmountTextBox.IsReadOnly = true;
-            DescripTextBox.IsReadOnly = true;
-            SubmitButton.IsEnabled = false;
+            DisableTextBoxes();
             CancelButton.Visibility = Visibility.Collapsed;
         }
 
@@ -56,9 +55,7 @@ namespace BoringGame
                 Expense.IsEnabled = false;
                 CancelButton.Visibility = Visibility.Visible;
 
-                AmountTextBox.IsReadOnly = false;
-                DescripTextBox.IsReadOnly = false;
-                SubmitButton.IsEnabled = true;
+                EnableTextBoxes();
             }
         }
 
@@ -71,9 +68,7 @@ namespace BoringGame
                 Expense.IsEnabled = false;
                 CancelButton.Visibility = Visibility.Visible;
 
-                AmountTextBox.IsReadOnly = false;
-                DescripTextBox.IsReadOnly = false;
-                SubmitButton.IsEnabled = true;
+                EnableTextBoxes();
             }
         }
 
@@ -138,14 +133,40 @@ namespace BoringGame
             }
         }
 
+        private void DisableTextBoxes()
+        {
+            AmountTextBlock.Visibility = Visibility.Collapsed;
+            DescripTextBlock.Visibility = Visibility.Collapsed;
+
+            AmountTextBox.IsReadOnly = true;
+            AmountTextBox.Visibility = Visibility.Collapsed;
+            DescripTextBox.IsReadOnly = true;
+            DescripTextBox.Visibility = Visibility.Collapsed;
+            SubmitButton.IsEnabled = false;
+            SubmitButton.Visibility = Visibility.Collapsed;
+
+        }
+
+        private void EnableTextBoxes()
+        {
+            AmountTextBlock.Visibility = Visibility.Visible;
+            DescripTextBlock.Visibility = Visibility.Visible;
+
+            AmountTextBox.IsReadOnly = false;
+            AmountTextBox.Visibility = Visibility.Visible;
+            DescripTextBox.IsReadOnly = false;
+            DescripTextBox.Visibility = Visibility.Visible;
+            SubmitButton.IsEnabled = true;
+            SubmitButton.Visibility = Visibility.Visible;
+            
+        }
+
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             Income.IsEnabled = true;
             Expense.IsEnabled = true;
 
-            AmountTextBox.IsReadOnly = true;
-            DescripTextBox.IsReadOnly = true;
-            SubmitButton.IsEnabled = false;
+            DisableTextBoxes();
         }
     }
 }
