@@ -17,11 +17,11 @@ namespace BoringGame
      */ 
     class Transaction
     {
-        private float amount;
+        private double amount;
         private string description;
         private Type type; 
 
-        public Transaction(float amount, string description, Type type)
+        public Transaction(double amount, string description, Type type)
         {
             this.amount = amount;
             if (description != null)

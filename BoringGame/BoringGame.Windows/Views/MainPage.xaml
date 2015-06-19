@@ -20,7 +20,7 @@
               Margin="10,131,0,0"
               VerticalAlignment="Top"
               Width="1346">
-            <TextBlock x:Name="Balance"
+            <TextBlock x:Name="BalanceLabel"
                        TextAlignment="Left"
                        Margin="34,65,0,0"
                        TextWrapping="Wrap"
@@ -56,7 +56,7 @@
                     Width="254"
                     FontSize="36"
                     Click="Expense_Click" />
-            <TextBlock x:Name="AmountTextBox"
+            <TextBlock x:Name="AmountTextBlock"
                        HorizontalAlignment="Left"
                        Margin="34,186,0,0"
                        TextWrapping="Wrap"
@@ -65,7 +65,7 @@
                        Height="41"
                        Width="179"
                        FontSize="32" />
-            <TextBox x:Name="AmountTextBox1"
+            <TextBox x:Name="AmountTextBox"
                      HorizontalAlignment="Left"
                      Margin="34,232,0,0"
                      TextWrapping="Wrap"
@@ -73,7 +73,9 @@
                      VerticalAlignment="Top"
                      Width="455"
                      Background="#FF010101"
-                     Foreground="White" />
+                     Foreground="White"
+                     PlaceholderText="Enter Amount"
+                     FontFamily="Global User Interface" />
             <TextBlock x:Name="DescripTextBlock"
                        HorizontalAlignment="Left"
                        Margin="34,293,0,0"
@@ -83,8 +85,7 @@
                        Height="41"
                        Width="179"
                        FontSize="32" />
-            <TextBox x:Name="DescripTextBox
-                     "
+            <TextBox x:Name="DescripTextBox"
                      HorizontalAlignment="Left"
                      Margin="34,339,0,0"
                      TextWrapping="Wrap"
@@ -95,6 +96,15 @@
                      Foreground="White"
                      Height="77"
                      FontFamily="Global User Interface" />
+            <Button x:Name="SubmitButton"
+                    Content="Done"
+                    HorizontalAlignment="Left"
+                    Height="83"
+                    Margin="542,336,0,0"
+                    VerticalAlignment="Top"
+                    Width="156"
+                    FontSize="36"
+                    Click="DoneClicked" />
         </Grid>
     </Grid>
 </Page>
