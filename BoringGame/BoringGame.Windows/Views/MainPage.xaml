@@ -117,14 +117,40 @@
                      FontFamily="Global User Interface">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
+                        <Grid Width="294"
+                              Margin="6">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Border Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}"
+                                    Margin="0,0,0,10"
+                                    Width="40"
+                                    Height="40">
+                                <Image Source="{Binding imagePath}"
+                                       Stretch="UniformToFill" />
+                            </Border>
+                            <StackPanel Grid.Column="1"
+                                        Margin="10,-10,0,0">
+                                <TextBlock Text="{Binding amount}"
+                                           TextWrapping="NoWrap"
+                                           FontFamily="Global User Interface" />
+                                <TextBlock Text="{Binding description}"
+                                           TextWrapping="NoWrap"
+                                           FontFamily="Global User Interface" />
+                                <TextBlock Text="{Binding type}"
+                                           TextWrapping="NoWrap"
+                                           FontFamily="Global User Interface" />
+                            </StackPanel>
+                        </Grid>
+                        <!-- <StackPanel Orientation="Horizontal">
                             <TextBlock Text="{Binding Path=amount}"
                                        Margin="20" />
                             <TextBlock Text="{Binding Path=description}"
                                        Margin="20" />
                             <TextBlock Text="{Binding Path=type}"
                                        Margin="20" />
-                        </StackPanel>
+                        </StackPanel> -->
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>

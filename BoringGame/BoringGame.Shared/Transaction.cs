@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 
 namespace BoringGame
 {
@@ -20,6 +22,7 @@ namespace BoringGame
         public string amount { get; set; }
         public string description { get; set; }
         public string type { get; set; }
+        public string imagePath { get; set; }
 
         public Transaction(double amount, string description, Type type)
         {
@@ -32,9 +35,11 @@ namespace BoringGame
 
             if (type == Type.Withdraw) {
                 this.type = "Withdraw";
+                this.imagePath = "ms-appx:///Assets/money_icons/withdraw_icon.png";
             }
             else {
                 this.type = "Deposit";
+                this.imagePath = "ms-appx:///Assets/money_icons/deposit_icon.png";
             }
         }
 

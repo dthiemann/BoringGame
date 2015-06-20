@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics.Tracing;
 using System.IO;
 using System.Linq;
@@ -32,7 +33,8 @@ namespace BoringGame
     {
 
         private double balance = 0.0;
-        private List<Transaction> transactions = new List<Transaction>(); 
+        //private List<Transaction> transactions = new List<Transaction>(); 
+        private ObservableCollection<Transaction> transactions = new ObservableCollection<Transaction>();
         private bool isIncome = false;
 
         public MainPage()
@@ -45,15 +47,6 @@ namespace BoringGame
         {
             DisableTextBoxes();
             CancelButton.Visibility = Visibility.Collapsed;
-        }
-
-        private void PopulateListView()
-        {
-            foreach (Transaction e in transactions)
-            {
-                ListViewItem x = new ListViewItem(); 
-                ActivityHistory.Items.Add(e.ToString());
-            }
         }
 
         private void Income_Click(object sender, RoutedEventArgs e) {
@@ -102,8 +95,8 @@ namespace BoringGame
                     balance += value;
                     BalanceLabel.Text = Math.Round(balance, 2).ToString("C");
 
-                    ActivityHistory.ItemsSource = null;
                     ActivityHistory.ItemsSource = transactions;
+                    
                 }
                 catch (Exception)
                 {
@@ -131,7 +124,6 @@ namespace BoringGame
                     balance -= value;
                     BalanceLabel.Text = Math.Round(balance, 2).ToString("c");
 
-                    ActivityHistory.ItemsSource = null;
                     ActivityHistory.ItemsSource = transactions;
                 }
                 catch (Exception) {
