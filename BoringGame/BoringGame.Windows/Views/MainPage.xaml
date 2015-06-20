@@ -113,7 +113,20 @@
                      Margin="842,10,0,0"
                      VerticalAlignment="Top"
                      Width="494"
-                     ItemsSource="{Binding}">
+                     ItemsSource="{Binding}"
+                     FontFamily="Global User Interface">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Path=amount}"
+                                       Margin="20" />
+                            <TextBlock Text="{Binding Path=description}"
+                                       Margin="20" />
+                            <TextBlock Text="{Binding Path=type}"
+                                       Margin="20" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
             </ListBox>
 
         </Grid>
