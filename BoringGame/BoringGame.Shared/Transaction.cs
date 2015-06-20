@@ -17,32 +17,40 @@ namespace BoringGame
      */ 
     class Transaction
     {
-        private double amount;
-        private string description;
-        private Type type; 
+        public string amount { get; set; }
+        public string description { get; set; }
+        public string type { get; set; }
 
         public Transaction(double amount, string description, Type type)
         {
-            this.amount = amount;
+            this.amount = Math.Round(amount,2).ToString();
+
             if (description != null)
                 this.description = description;
             else
                 this.description = "No description";
-            this.type = type;
+
+            if (type == Type.Withdraw) {
+                this.type = "Withdraw";
+            }
+            else {
+                this.type = "Deposit";
+            }
         }
 
         public override string ToString()
         {
-            string val = "$" + amount.ToString() + ": " + description;
+            string val = "$" + amount + ": " + description;
             return val;
         }
+
 
         /*
          * Determines if we have a valid transaction (i.e. no negative or 0 values)
          */
         public bool CheckIfValid()
         {
-            if (amount <= 0)
+            if (double.Parse(amount) <= 0)
                 return false;
             return true;
         }

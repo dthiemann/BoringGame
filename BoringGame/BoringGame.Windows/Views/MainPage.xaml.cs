@@ -32,15 +32,13 @@ namespace BoringGame
     {
 
         private double balance = 0.0;
-        //private LinkedList<Transaction> transactions = new LinkedList<Transaction>();
-        private IList<Transaction> transactions = new List<Transaction>(); 
+        private List<Transaction> transactions = new List<Transaction>(); 
         private bool isIncome = false;
 
         public MainPage()
         {
             this.InitializeComponent();
             this.InitializeWindow();
-            this.PopulateListView();
         }
 
         private void InitializeWindow()
@@ -53,6 +51,7 @@ namespace BoringGame
         {
             foreach (Transaction e in transactions)
             {
+                ListViewItem x = new ListViewItem(); 
                 ActivityHistory.Items.Add(e.ToString());
             }
         }
@@ -101,8 +100,10 @@ namespace BoringGame
                     Transaction trans = new Transaction(value, DescripTextBox.Text, Type.Deposit);
                     transactions.Add(trans);
                     balance += value;
-                    BalanceLabel.Text = "$" + Math.Round(balance, 2).ToString();
-                    PopulateListView();
+                    BalanceLabel.Text = Math.Round(balance, 2).ToString("C");
+
+                    ActivityHistory.ItemsSource = null;
+                    ActivityHistory.ItemsSource = transactions;
                 }
                 catch (Exception)
                 {
@@ -128,7 +129,10 @@ namespace BoringGame
                     Transaction trans = new Transaction(value, DescripTextBox.Text, Type.Deposit);
                     transactions.Add(trans);
                     balance -= value;
-                    BalanceLabel.Text = "$" + Math.Round(balance, 2).ToString();
+                    BalanceLabel.Text = Math.Round(balance, 2).ToString("c");
+
+                    ActivityHistory.ItemsSource = null;
+                    ActivityHistory.ItemsSource = transactions;
                 }
                 catch (Exception) {
                     MessageDialog dialogBox = new MessageDialog("Wrong format for amount, try again");

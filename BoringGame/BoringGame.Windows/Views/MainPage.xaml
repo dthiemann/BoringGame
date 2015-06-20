@@ -107,14 +107,15 @@
                     Width="156"
                     FontSize="36"
                     Click="CancelButton_Click" />
-            <ListView x:Name="ActivityHistory"
-                      HorizontalAlignment="Left"
-                      Height="607"
-                      Margin="800,10,0,0"
-                      VerticalAlignment="Top"
-                      Width="536">
-            </ListView>
-                      
+            <ListBox x:Name="ActivityHistory"
+                     HorizontalAlignment="Left"
+                     Height="607"
+                     Margin="842,10,0,0"
+                     VerticalAlignment="Top"
+                     Width="494"
+                     ItemsSource="{Binding}">
+            </ListBox>
+
         </Grid>
     </Grid>
 </Page>
