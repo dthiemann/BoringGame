@@ -16,10 +16,8 @@
                    VerticalAlignment="Top"
                    FontSize="72"
                    MinHeight="85" />
-        <Grid HorizontalAlignment="Left"
-              MinHeight="627"
+        <Grid MinHeight="627"
               Margin="10,131,0,0"
-              VerticalAlignment="Top"
               MinWidth="1346">
             <TextBlock x:Name="BalanceLabel"
                        TextAlignment="Left"
@@ -52,12 +50,13 @@
                     Click="Expense_Click" />
             <TextBlock x:Name="AmountTextBlock"
                        HorizontalAlignment="Left"
-                       Margin="34,186,0,0"
+                       Margin="34,0,0,407"
                        TextWrapping="Wrap"
                        Text="Amount"
                        MinHeight="41"
                        MinWidth="179"
-                       FontSize="32" />
+                       FontSize="32"
+                       VerticalAlignment="Bottom" />
             <TextBox x:Name="AmountTextBox"
                      HorizontalAlignment="Left"
                      Margin="34,0,0,354"
@@ -113,8 +112,7 @@
                      Margin="842,10,0,0"
                      MinWidth="494"
                      ItemsSource="{Binding}"
-                     FontFamily="Global User Interface"
-                     VerticalAlignment="Bottom">
+                     FontFamily="Global User Interface">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid Width="294"
