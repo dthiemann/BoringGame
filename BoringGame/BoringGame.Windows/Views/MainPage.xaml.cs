@@ -119,7 +119,7 @@ namespace BoringGame
                     double value = Double.Parse(AmountTextBox.Text);
                     value = Math.Round(value, 2);
 
-                    Transaction trans = new Transaction(value, DescripTextBox.Text, Type.Deposit);
+                    Transaction trans = new Transaction(value, DescripTextBox.Text, Type.Withdraw);
                     transactions.Add(trans);
                     balance -= value;
                     BalanceLabel.Text = Math.Round(balance, 2).ToString("c");
